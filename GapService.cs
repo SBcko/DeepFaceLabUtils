@@ -14,7 +14,7 @@ namespace DeepFakeUtils
             string directoryToCheck = Console.ReadLine();
             Console.WriteLine("Provide gap size to check:");
             int gapSize = int.Parse(Console.ReadLine());
-            List<string> allFiles = FileUtils.getAllFileNames(directoryToCheck);
+            List<string> allFiles = FileUtils.getAllFileNamesWithUnderscore(directoryToCheck);
             
             List<FileNameParts> allFilesAsParts = allFiles.Select(item => FileNameParts.FromFileName(item)).ToList();
 

@@ -8,9 +8,16 @@ namespace DeepFakeUtils
 {
     public static class FileUtils
     {
-        public static List<string> getAllFileNames(String folderPath)
+        public static List<string> getAllFileNamesWithUnderscore(String folderPath)
         {
             List<string> result = new DirectoryInfo(folderPath).GetFiles().Select(item => item.Name).Where(item => item.Contains("_")).OrderBy(item => item).ToList();
+            Console.WriteLine("Files found:" + result.Count);
+            return result;
+        }
+
+        public static List<string> getAllFileNames(String folderPath)
+        {
+            List<string> result = new DirectoryInfo(folderPath).GetFiles().Select(item => item.Name).OrderBy(item => item).ToList();
             Console.WriteLine("Files found:" + result.Count);
             return result;
         }

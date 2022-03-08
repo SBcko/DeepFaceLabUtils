@@ -15,7 +15,7 @@ namespace DeepFakeUtils
             while (true)
             { 
 
-                List<string> allFiles = FileUtils.getAllFileNames(directoryToCheck);
+                List<string> allFiles = FileUtils.getAllFileNamesWithUnderscore(directoryToCheck);
                 List<FileNameParts> allFilesAsParts = allFiles.Select(item => FileNameParts.FromFileName(item)).ToList();
                 List<string> duplicatePictures = allFilesAsParts.GroupBy(item => item.FirstPart).Where(item => item.Count() > 1).Select(item => item.Key).ToList();
                 foreach (string duplicatePicture in duplicatePictures)
